@@ -9,53 +9,145 @@
 <body>
     <div class="cards-container">
         <div class="card">
-            <h1 class="card-title">Hobby</h1>
-            <p class="card-price">Free</p>
-            <div class="card-content">
-                <p class="includes-text">Includes:</p>
-                <ul class="features-list">
-                    <li>
-                        <span class="checkmark">✓</span>
-                        No credit card required
-                    </li>
-                    <li>
-                        <span class="checkmark">✓</span>
-                        Limited Agent requests
-                    </li>
-                    <li>
-                        <span class="checkmark">✓</span>
-                        Limited Tab completions
-                    </li>
-                </ul>
+            <div class="card-body">
+                <h1 class="card-title">Hobby</h1>
+                <p class="card-subtitle">For getting started</p>
+                <div class="card-price-row">
+                    <p class="card-price">Free</p>
+                </div>
+                <div class="segmented-control" role="group" aria-label="Billing period">
+                    <button class="segmented-control-button is-active" type="button" aria-pressed="true">Monthly</button>
+                    <button class="segmented-control-button" type="button" aria-pressed="false">Yearly</button>
+                </div>
+                <div class="card-content">
+                    <p class="includes-text">Includes:</p>
+                    <ul class="features-list">
+                        <li>
+                            <span class="checkmark">✓</span>
+                            No credit card required
+                        </li>
+                        <li>
+                            <span class="checkmark">✓</span>
+                            Limited Agent requests
+                        </li>
+                    </ul>
+                </div>
             </div>
             <button class="download-button">Download</button>
         </div>
         <div class="card">
-            <h1 class="card-title">Pro</h1>
-            <p class="card-price">$20/mo.</p>
-            <div class="card-content">
-                <p class="includes-text">Everything in Hobby, plus:</p>
-                <ul class="features-list">
-                    <li>
-                        <span class="checkmark">✓</span>
-                        Extended limits on Agent
-                    </li>
-                    <li>
-                        <span class="checkmark">✓</span>
-                        Unlimited Tab completions
-                    </li>
-                    <li>
-                        <span class="checkmark">✓</span>
-                        Background Agents
-                    </li>
-                    <li>
-                        <span class="checkmark">✓</span>
-                        Maximum context windows
-                    </li>
-                </ul>
+            <div class="card-body">
+                <h1 class="card-title">Pro</h1>
+                <p class="card-subtitle">For the tinkerer</p>
+                <div class="card-price-row">
+                    <p class="card-price">$20 <span class="card-price-unit"> /mo</span></p>
+                </div>
+                <div class="segmented-control" role="group" aria-label="Billing period">
+                    <button class="segmented-control-button is-active" type="button" aria-pressed="true">Monthly</button>
+                    <button class="segmented-control-button" type="button" aria-pressed="false">Yearly</button>
+                </div>
+                <div class="card-content">
+                    <p class="includes-text">Everything in Hobby, plus:</p>
+                    <ul class="features-list">
+                        <li>
+                            <span class="checkmark">✓</span>
+                            Extended limits on Agent
+                        </li>
+                        <li>
+                            <span class="checkmark">✓</span>
+                            Unlimited Tab completions
+                        </li>
+                        <li>
+                            <span class="checkmark">✓</span>
+                            Background Agents
+                        </li>
+                        <li>
+                            <span class="checkmark">✓</span>
+                            Maximum context windows
+                        </li>
+                        <li>
+                            <span class="checkmark">✓</span>
+                            Bugbot
+                        </li>
+                    </ul>
+                </div>
             </div>
-            <button class="download-button">Get Pro</button>
+            <button class="download-button primary-button">Get Pro</button>
+        </div>
+        <div class="card">
+            <div class="card-body">
+                <h1 class="card-title">Ultra</h1>
+                <p class="card-subtitle">For power users</p>
+                <div class="card-price-row">
+                    <p class="card-price">$200 <span class="card-price-unit"> /mo</span></p>
+                </div>
+                <div class="segmented-control" role="group" aria-label="Billing period">
+                    <button class="segmented-control-button is-active" type="button" aria-pressed="true">Monthly</button>
+                    <button class="segmented-control-button" type="button" aria-pressed="false">Yearly</button>
+                </div>
+                <div class="card-content">
+                    <p class="includes-text">Everything in Pro, plus:</p>
+                    <ul class="features-list">
+                        <li>
+                            <span class="checkmark">✓</span>
+                            Highest Agent limits
+                        </li>
+                        <li>
+                            <span class="checkmark">✓</span>
+                            Priority access to new models
+                        </li>
+                        <li>
+                            <span class="checkmark">✓</span>
+                            Early access to features
+                        </li>
+                        <li>
+                            <span class="checkmark">✓</span>
+                            Priority support
+                        </li>
+                        <li>
+                            <span class="checkmark">✓</span>
+                            Longer context windows
+                        </li>
+                        <li>
+                            <span class="checkmark">✓</span>
+                            Faster usage pooling
+                        </li>
+                        <li>
+                            <span class="checkmark">✓</span>
+                            Advanced codebase indexing
+                        </li>
+                        <li>
+                            <span class="checkmark">✓</span>
+                            Team rules and commands
+                        </li>
+                        <li>
+                            <span class="checkmark">✓</span>
+                            Dedicated onboarding
+                        </li>
+                        <li>
+                            <span class="checkmark">✓</span>
+                            SAML and SSO
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <button class="download-button">Get Ultra</button>
         </div>
     </div>
+    <script>
+        document.querySelectorAll('.segmented-control').forEach(function (control) {
+            const buttons = control.querySelectorAll('.segmented-control-button');
+            buttons.forEach(function (button) {
+                button.addEventListener('click', function () {
+                    buttons.forEach(function (other) {
+                        other.classList.remove('is-active');
+                        other.setAttribute('aria-pressed', 'false');
+                    });
+                    button.classList.add('is-active');
+                    button.setAttribute('aria-pressed', 'true');
+                });
+            });
+        });
+    </script>
 </body>
 </html>
