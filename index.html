@@ -7,134 +7,129 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="cards-container">
+    <!-- Cards are added here by the script -->
+    <div class="cards-container"></div>
+
+    <!-- Hidden card frame, copied once per plan -->
+    <template id="card-template">
         <div class="card">
             <div class="card-body">
-                <h1 class="card-title">Hobby</h1>
-                <p class="card-subtitle">For getting started</p>
+                <h1 class="card-title"></h1>
+                <p class="card-subtitle"></p>
                 <div class="card-price-row">
-                    <p class="card-price">Free</p>
+                    <p class="card-price"></p>
                 </div>
                 <div class="segmented-control" role="group" aria-label="Billing period">
                     <button class="segmented-control-button is-active" type="button" aria-pressed="true">Monthly</button>
                     <button class="segmented-control-button" type="button" aria-pressed="false">Yearly</button>
                 </div>
                 <div class="card-content">
-                    <p class="includes-text">Includes:</p>
-                    <ul class="features-list">
-                        <li>
-                            <span class="checkmark">✓</span>
-                            No credit card required
-                        </li>
-                        <li>
-                            <span class="checkmark">✓</span>
-                            Limited Agent requests
-                        </li>
-                    </ul>
+                    <p class="includes-text"></p>
+                    <ul class="features-list"></ul>
                 </div>
             </div>
-            <button class="download-button">Download</button>
+            <button class="download-button"></button>
         </div>
-        <div class="card">
-            <div class="card-body">
-                <h1 class="card-title">Pro</h1>
-                <p class="card-subtitle">For the tinkerer</p>
-                <div class="card-price-row">
-                    <p class="card-price">$20 <span class="card-price-unit"> /mo</span></p>
-                </div>
-                <div class="segmented-control" role="group" aria-label="Billing period">
-                    <button class="segmented-control-button is-active" type="button" aria-pressed="true">Monthly</button>
-                    <button class="segmented-control-button" type="button" aria-pressed="false">Yearly</button>
-                </div>
-                <div class="card-content">
-                    <p class="includes-text">Everything in Hobby, plus:</p>
-                    <ul class="features-list">
-                        <li>
-                            <span class="checkmark">✓</span>
-                            Extended limits on Agent
-                        </li>
-                        <li>
-                            <span class="checkmark">✓</span>
-                            Unlimited Tab completions
-                        </li>
-                        <li>
-                            <span class="checkmark">✓</span>
-                            Background Agents
-                        </li>
-                        <li>
-                            <span class="checkmark">✓</span>
-                            Maximum context windows
-                        </li>
-                        <li>
-                            <span class="checkmark">✓</span>
-                            Bugbot
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <button class="download-button primary-button">Get Pro</button>
-        </div>
-        <div class="card">
-            <div class="card-body">
-                <h1 class="card-title">Ultra</h1>
-                <p class="card-subtitle">For power users</p>
-                <div class="card-price-row">
-                    <p class="card-price">$200 <span class="card-price-unit"> /mo</span></p>
-                </div>
-                <div class="segmented-control" role="group" aria-label="Billing period">
-                    <button class="segmented-control-button is-active" type="button" aria-pressed="true">Monthly</button>
-                    <button class="segmented-control-button" type="button" aria-pressed="false">Yearly</button>
-                </div>
-                <div class="card-content">
-                    <p class="includes-text">Everything in Pro, plus:</p>
-                    <ul class="features-list">
-                        <li>
-                            <span class="checkmark">✓</span>
-                            Highest Agent limits
-                        </li>
-                        <li>
-                            <span class="checkmark">✓</span>
-                            Priority access to new models
-                        </li>
-                        <li>
-                            <span class="checkmark">✓</span>
-                            Early access to features
-                        </li>
-                        <li>
-                            <span class="checkmark">✓</span>
-                            Priority support
-                        </li>
-                        <li>
-                            <span class="checkmark">✓</span>
-                            Longer context windows
-                        </li>
-                        <li>
-                            <span class="checkmark">✓</span>
-                            Faster usage pooling
-                        </li>
-                        <li>
-                            <span class="checkmark">✓</span>
-                            Advanced codebase indexing
-                        </li>
-                        <li>
-                            <span class="checkmark">✓</span>
-                            Team rules and commands
-                        </li>
-                        <li>
-                            <span class="checkmark">✓</span>
-                            Dedicated onboarding
-                        </li>
-                        <li>
-                            <span class="checkmark">✓</span>
-                            SAML and SSO
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <button class="download-button">Get Ultra</button>
-        </div>
-    </div>
+    </template>
+
     <script>
+        // Plan content
+        const hobby = {
+            title: "Hobby",
+            subtitle: "For getting started",
+            price: "Free",
+            includes: "Includes:",
+            features: [
+                "No credit card required",
+                "Limited Agent requests",
+            ],
+            cta: "Download",
+        };
+
+        const pro = {
+            title: "Pro",
+            subtitle: "For the tinkerer",
+            price: "$20",
+            priceUnit: "/mo",
+            includes: "Everything in Hobby, plus:",
+            features: [
+                "Extended limits on Agent",
+                "Unlimited Tab completions",
+                "Background Agents",
+                "Maximum context windows",
+                "Bugbot",
+            ],
+            cta: "Get Pro",
+            featured: true,
+        };
+
+        const ultra = {
+            title: "Ultra",
+            subtitle: "For power users",
+            price: "$200",
+            priceUnit: "/mo",
+            includes: "Everything in Pro, plus:",
+            features: [
+                "Highest Agent limits",
+                "Priority access to new models",
+                "Early access to features",
+                "Priority support",
+                "Longer context windows",
+                "Faster usage pooling",
+                "Advanced codebase indexing",
+                "Team rules and commands",
+                "Dedicated onboarding",
+                "SAML and SSO",
+            ],
+            cta: "Get Ultra",
+        };
+
+        // Order of cards, left to right
+        const plans = [hobby, pro, ultra];
+
+        const template = document.querySelector('#card-template');
+
+        // Copy the frame and fill it with one plan's content
+        function createCard(plan) {
+            const card = template.content.firstElementChild.cloneNode(true);
+
+            card.querySelector('.card-title').textContent = plan.title;
+            card.querySelector('.card-subtitle').textContent = plan.subtitle;
+            card.querySelector('.card-price').textContent = plan.price;
+            card.querySelector('.includes-text').textContent = plan.includes;
+            card.querySelector('.download-button').textContent = plan.cta;
+
+            if (plan.priceUnit) {
+                const unit = document.createElement('span');
+                unit.className = 'card-price-unit';
+                unit.textContent = ' ' + plan.priceUnit;
+                card.querySelector('.card-price').append(' ', unit);
+            }
+
+            if (plan.featured) {
+                card.querySelector('.download-button').classList.add('primary-button');
+            }
+
+            const list = card.querySelector('.features-list');
+            plan.features.forEach(function (feature) {
+                const row = document.createElement('li');
+                const check = document.createElement('span');
+                check.className = 'checkmark';
+                check.textContent = '✓';
+                row.append(check, ' ' + feature);
+                list.append(row);
+            });
+
+            return card;
+        }
+
+        // One card per plan
+        const container = document.querySelector('.cards-container');
+        plans.forEach(function (plan) {
+            container.append(createCard(plan));
+        });
+
+        // Monthly / Yearly toggle
         document.querySelectorAll('.segmented-control').forEach(function (control) {
             const buttons = control.querySelectorAll('.segmented-control-button');
             buttons.forEach(function (button) {
